@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name IRS2008)(type Legacy)(uri ${KIPRJMOD}/IRS2008.lib)(options "")(descr ""))
+)
