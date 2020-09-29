@@ -418,10 +418,6 @@ F 3 "" H 10250 1100 50  0001 C CNN
 	1    10250 1100
 	1    0    0    -1  
 $EndComp
-Text Label 10250 1800 2    50   ~ 0
-MOS_DRAIN
-Text Label 10250 1450 2    50   ~ 0
-vBatt
 $Comp
 L power:GND #PWR?
 U 1 1 5F708CEF
@@ -943,4 +939,21 @@ F 3 "" H 2000 3550 50  0001 C CNN
 	1    2000 3550
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	10250 750  9900 750 
+Text Label 9900 750  2    50   ~ 0
+MOS_DRAIN
+$Comp
+L power:GND #PWR?
+U 1 1 5F792EB8
+P 10250 1800
+F 0 "#PWR?" H 10250 1550 50  0001 C CNN
+F 1 "GND" H 10255 1627 50  0000 C CNN
+F 2 "" H 10250 1800 50  0001 C CNN
+F 3 "" H 10250 1800 50  0001 C CNN
+	1    10250 1800
+	1    0    0    -1  
+$EndComp
+Text Label 10250 1450 2    50   ~ 0
+MOS_SOURCE
 $EndSCHEMATC
