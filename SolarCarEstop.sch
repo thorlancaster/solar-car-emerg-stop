@@ -418,10 +418,8 @@ F 3 "" H 10250 1100 50  0001 C CNN
 	1    10250 1100
 	1    0    0    -1  
 $EndComp
-Text Label 10250 1800 2    50   ~ 0
-MOS_DRAIN
 Text Label 10250 1450 2    50   ~ 0
-vBatt
+MOS_SOURCE
 $Comp
 L power:GND #PWR?
 U 1 1 5F708CEF
@@ -541,8 +539,8 @@ F 3 "~" H 8350 1400 50  0001 C CNN
 	1    8350 1400
 	1    0    0    -1  
 $EndComp
-Text Notes 8250 2300 0    50   ~ 0
-Suggested Values\nFor 15v Output
+Text Notes 8250 2350 0    50   ~ 0
+Suggested Values\nFor 14-15v Output\nRecommended 14v
 $Comp
 L power:GND #PWR?
 U 1 1 5F70ACCB
@@ -761,50 +759,6 @@ Wire Wire Line
 	5250 3350 5500 3350
 Text Label 5250 2700 0    50   ~ 0
 MSW_VBOOT
-$Comp
-L Device:Transformer_1P_1S T?
-U 1 1 5F713671
-P 2900 3000
-F 0 "T?" H 2900 3378 50  0000 C CNN
-F 1 "1:2.5" H 2900 3287 50  0000 C CNN
-F 2 "" H 2900 3000 50  0001 C CNN
-F 3 "~" H 2900 3000 50  0001 C CNN
-	1    2900 3000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:D_Small D?
-U 1 1 5F71508D
-P 3300 2700
-F 0 "D?" H 3200 2500 50  0000 C CNN
-F 1 "D_Small" H 3150 2600 50  0000 C CNN
-F 2 "" V 3300 2700 50  0001 C CNN
-F 3 "~" V 3300 2700 50  0001 C CNN
-	1    3300 2700
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small R?
-U 1 1 5F7152BD
-P 3400 2700
-F 0 "R?" H 3341 2654 50  0000 R CNN
-F 1 "220" H 3200 2650 50  0000 R CNN
-F 2 "" H 3400 2700 50  0001 C CNN
-F 3 "~" H 3400 2700 50  0001 C CNN
-	1    3400 2700
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:D_Zener_Small D?
-U 1 1 5F71648D
-P 3400 2950
-F 0 "D?" V 3354 3018 50  0000 L CNN
-F 1 "13v" V 3445 3018 50  0000 L CNN
-F 2 "" V 3400 2950 50  0001 C CNN
-F 3 "~" V 3400 2950 50  0001 C CNN
-	1    3400 2950
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	5250 3350 5250 3500
 Wire Wire Line
@@ -812,135 +766,375 @@ Wire Wire Line
 Text Label 5500 3500 0    50   ~ 0
 MSW_VBRIDGE
 Wire Wire Line
-	3400 2800 3500 2800
-Wire Wire Line
-	3400 3200 3500 3200
-Text Label 3500 3200 0    50   ~ 0
-MSW_VBRIDGE
-Text Label 3500 2800 0    50   ~ 0
-MSW_VBOOT
-Wire Wire Line
 	4150 3250 3900 3250
-Wire Wire Line
-	3900 3250 3900 3900
 $Comp
-L Timer:NE555 U?
-U 1 1 5F7236FC
-P 1500 3150
-F 0 "U?" H 1500 3728 50  0000 C CNN
-F 1 "NE555" H 1500 3637 50  0000 C CNN
-F 2 "" H 1500 3150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" H 1500 3150 50  0001 C CNN
-	1    1500 3150
+L Connector:Conn_01x06_Male J?
+U 1 1 5F7BDC28
+P 1950 3050
+F 0 "J?" H 2056 3428 50  0000 C CNN
+F 1 "TRACO TMA1515S" H 2056 3337 50  0000 C CNN
+F 2 "" H 1950 3050 50  0001 C CNN
+F 3 "~" H 1950 3050 50  0001 C CNN
+	1    1950 3050
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3300 2600 3400 2600
-Wire Wire Line
-	3400 3050 3400 3200
-Wire Wire Line
-	3400 3200 3300 3200
-Connection ~ 3400 3200
-Wire Wire Line
-	3400 2850 3400 2800
-Connection ~ 3400 2800
-Wire Wire Line
-	2000 3350 2000 3250
-Wire Wire Line
-	2000 3250 1350 3250
-Wire Wire Line
-	1350 3250 1350 3000
-Wire Wire Line
-	1350 3000 1000 3000
-Wire Wire Line
-	1000 3000 1000 2950
-Wire Wire Line
-	1000 3350 950  3350
-Wire Wire Line
-	950  3350 950  2750
-Wire Wire Line
-	950  2750 1500 2750
-Text Label 1500 2750 0    50   ~ 0
+Text Notes 1700 3350 0    59   ~ 0
++in\n-in\nNC\n-out\nNC\n+out
+Text Label 2150 2850 0    50   ~ 0
 vDrv
 $Comp
-L Device:C_Small C?
-U 1 1 5F732931
-P 2500 3300
-F 0 "C?" H 2592 3346 50  0000 L CNN
-F 1 "10uf" H 2592 3255 50  0000 L CNN
-F 2 "" H 2500 3300 50  0001 C CNN
-F 3 "~" H 2500 3300 50  0001 C CNN
-	1    2500 3300
+L power:GND #PWR?
+U 1 1 5F7C0BB7
+P 2300 2900
+F 0 "#PWR?" H 2300 2650 50  0001 C CNN
+F 1 "GND" H 2305 2727 50  0000 C CNN
+F 2 "" H 2300 2900 50  0001 C CNN
+F 3 "" H 2300 2900 50  0001 C CNN
+	1    2300 2900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2500 2800 2000 2800
+	2300 2900 2200 2900
 Wire Wire Line
-	2000 2800 2000 2950
+	2200 2900 2200 2950
+Wire Wire Line
+	2200 2950 2150 2950
 $Comp
-L Device:C_Small C?
-U 1 1 5F7348D3
-P 2000 3450
-F 0 "C?" H 2092 3496 50  0000 L CNN
-F 1 "2nf" H 2092 3405 50  0000 L CNN
-F 2 "" H 2000 3450 50  0001 C CNN
-F 3 "~" H 2000 3450 50  0001 C CNN
-	1    2000 3450
+L Device:D_Small D?
+U 1 1 5F7C1FF8
+P 2550 3150
+F 0 "D?" H 2550 3355 50  0000 C CNN
+F 1 "D_Small" H 2550 3264 50  0000 C CNN
+F 2 "" V 2550 3150 50  0001 C CNN
+F 3 "~" V 2550 3150 50  0001 C CNN
+	1    2550 3150
 	1    0    0    -1  
 $EndComp
-Connection ~ 2000 3350
+$Comp
+L Device:D_Small D?
+U 1 1 5F7C2125
+P 2550 3450
+F 0 "D?" H 2550 3245 50  0000 C CNN
+F 1 "D_Small" H 2550 3336 50  0000 C CNN
+F 2 "" V 2550 3450 50  0001 C CNN
+F 3 "~" V 2550 3450 50  0001 C CNN
+	1    2550 3450
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2450 3450 2250 3450
+Wire Wire Line
+	2250 3450 2250 3350
+Wire Wire Line
+	2250 3350 2150 3350
+Wire Wire Line
+	2150 3150 2450 3150
 $Comp
 L Device:R_Small R?
-U 1 1 5F734A4F
-P 2100 3150
-F 0 "R?" H 2159 3196 50  0000 L CNN
-F 1 "5k" H 2159 3105 50  0000 L CNN
-F 2 "" H 2100 3150 50  0001 C CNN
-F 3 "~" H 2100 3150 50  0001 C CNN
-	1    2100 3150
-	1    0    0    -1  
+U 1 1 5F7C516F
+P 2900 3450
+F 0 "R?" V 2704 3450 50  0000 C CNN
+F 1 "470r" V 2795 3450 50  0000 C CNN
+F 2 "" H 2900 3450 50  0001 C CNN
+F 3 "~" H 2900 3450 50  0001 C CNN
+	1    2900 3450
+	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2100 3250 2000 3250
-Connection ~ 2000 3250
+	2800 3450 2650 3450
+Text Label 3000 3450 0    50   ~ 0
+MSW_VBOOT
+$Comp
+L Device:R_Small R?
+U 1 1 5F7C8159
+P 2900 3150
+F 0 "R?" V 2704 3150 50  0000 C CNN
+F 1 "470r" V 2795 3150 50  0000 C CNN
+F 2 "" H 2900 3150 50  0001 C CNN
+F 3 "~" H 2900 3150 50  0001 C CNN
+	1    2900 3150
+	0    1    1    0   
+$EndComp
 Wire Wire Line
-	2100 3050 2100 2950
-Wire Wire Line
-	2100 2950 2000 2950
-Connection ~ 2000 2950
+	2800 3150 2650 3150
+Text Label 3000 3150 0    50   ~ 0
+MSW_VBRIDGE
 $Comp
 L power:GND #PWR?
-U 1 1 5F7388F2
-P 1500 3550
-F 0 "#PWR?" H 1500 3300 50  0001 C CNN
-F 1 "GND" H 1505 3377 50  0000 C CNN
-F 2 "" H 1500 3550 50  0001 C CNN
-F 3 "" H 1500 3550 50  0001 C CNN
-	1    1500 3550
+U 1 1 5F8055C5
+P 10250 1800
+F 0 "#PWR?" H 10250 1550 50  0001 C CNN
+F 1 "GND" H 10255 1627 50  0000 C CNN
+F 2 "" H 10250 1800 50  0001 C CNN
+F 3 "" H 10250 1800 50  0001 C CNN
+	1    10250 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J?
+U 1 1 5F80668A
+P 10450 2400
+F 0 "J?" H 10423 2280 50  0000 R CNN
+F 1 "Conn_01x04_Male" H 10450 2600 50  0000 R CNN
+F 2 "" H 10450 2400 50  0001 C CNN
+F 3 "~" H 10450 2400 50  0001 C CNN
+	1    10450 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F8072CE
+P 10250 2500
+F 0 "#PWR?" H 10250 2250 50  0001 C CNN
+F 1 "GND" H 10255 2327 50  0000 C CNN
+F 2 "" H 10250 2500 50  0001 C CNN
+F 3 "" H 10250 2500 50  0001 C CNN
+	1    10250 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:IRF3205 Q?
+U 1 1 5F807B14
+P 9450 2200
+F 0 "Q?" H 9656 2246 50  0000 L CNN
+F 1 "IRF3205" H 9656 2155 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 9700 2125 50  0001 L CIN
+F 3 "http://www.irf.com/product-info/datasheets/data/irf3205.pdf" H 9450 2200 50  0001 L CNN
+	1    9450 2200
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
-U 1 1 5F741FC4
-P 2500 3450
-F 0 "#PWR?" H 2500 3200 50  0001 C CNN
-F 1 "GND" H 2505 3277 50  0000 C CNN
-F 2 "" H 2500 3450 50  0001 C CNN
-F 3 "" H 2500 3450 50  0001 C CNN
-	1    2500 3450
+U 1 1 5F807C4D
+P 9550 2400
+F 0 "#PWR?" H 9550 2150 50  0001 C CNN
+F 1 "GND" H 9555 2227 50  0000 C CNN
+F 2 "" H 9550 2400 50  0001 C CNN
+F 3 "" H 9550 2400 50  0001 C CNN
+	1    9550 2400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2500 3450 2500 3400
+	9550 2000 10000 2000
+Wire Wire Line
+	10000 2000 10000 2200
+Wire Wire Line
+	10000 2200 10250 2200
+Wire Wire Line
+	9050 2200 9250 2200
+Text Notes 10550 2500 0    50   ~ 0
+FAULT_LED\nBMS_FAULT\nEMERG_SW\nGND
 $Comp
-L power:GND #PWR?
-U 1 1 5F744161
-P 2000 3550
-F 0 "#PWR?" H 2000 3300 50  0001 C CNN
-F 1 "GND" H 2005 3377 50  0000 C CNN
-F 2 "" H 2000 3550 50  0001 C CNN
-F 3 "" H 2000 3550 50  0001 C CNN
-	1    2000 3550
+L Device:R_Small R?
+U 1 1 5F811A0A
+P 9050 2050
+F 0 "R?" H 9109 2096 50  0000 L CNN
+F 1 "2k" H 9109 2005 50  0000 L CNN
+F 2 "" H 9050 2050 50  0001 C CNN
+F 3 "~" H 9050 2050 50  0001 C CNN
+	1    9050 2050
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	9050 2150 9050 2200
+Text Label 9050 1950 0    50   ~ 0
+Vdrv
+$Comp
+L Transistor_BJT:2N3904 Q?
+U 1 1 5F8188A3
+P 8950 2600
+F 0 "Q?" H 9141 2646 50  0000 L CNN
+F 1 "2N3904" H 9141 2555 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 9150 2525 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 8950 2600 50  0001 L CNN
+	1    8950 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F818A2E
+P 9050 2800
+F 0 "#PWR?" H 9050 2550 50  0001 C CNN
+F 1 "GND" H 9055 2627 50  0000 C CNN
+F 2 "" H 9050 2800 50  0001 C CNN
+F 3 "" H 9050 2800 50  0001 C CNN
+	1    9050 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9050 2400 9050 2200
+Connection ~ 9050 2200
+Wire Wire Line
+	8700 2600 8750 2600
+Wire Wire Line
+	6250 2600 6250 2500
+Text Label 6250 2500 0    50   ~ 0
+~FAULT
+$Comp
+L Device:R_Small R?
+U 1 1 5F81FFE2
+P 6550 2350
+F 0 "R?" H 6609 2396 50  0000 L CNN
+F 1 "2k" H 6609 2305 50  0000 L CNN
+F 2 "" H 6550 2350 50  0001 C CNN
+F 3 "~" H 6550 2350 50  0001 C CNN
+	1    6550 2350
+	1    0    0    -1  
+$EndComp
+Text Label 6550 2250 0    50   ~ 0
+vDrv
+Wire Wire Line
+	6550 2450 6550 2600
+Wire Wire Line
+	6550 2600 6250 2600
+$Comp
+L Device:R_Small R?
+U 1 1 5F828055
+P 9400 1800
+F 0 "R?" H 9459 1846 50  0000 L CNN
+F 1 "2k" H 9459 1755 50  0000 L CNN
+F 2 "" H 9400 1800 50  0001 C CNN
+F 3 "~" H 9400 1800 50  0001 C CNN
+	1    9400 1800
+	1    0    0    -1  
+$EndComp
+Text Label 9400 1700 0    50   ~ 0
+vDrv
+Wire Wire Line
+	9400 1900 10050 1900
+Wire Wire Line
+	10050 1900 10050 2400
+Wire Wire Line
+	10050 2400 10250 2400
+Wire Wire Line
+	10050 2400 10050 3250
+Wire Wire Line
+	10050 3250 8950 3250
+Connection ~ 10050 2400
+$Comp
+L Device:R_Small R?
+U 1 1 5F82C00B
+P 8850 3250
+F 0 "R?" V 8654 3250 50  0000 C CNN
+F 1 "2k" V 8745 3250 50  0000 C CNN
+F 2 "" H 8850 3250 50  0001 C CNN
+F 3 "~" H 8850 3250 50  0001 C CNN
+	1    8850 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L Transistor_BJT:2N3904 Q?
+U 1 1 5F82CC3B
+P 8550 3250
+F 0 "Q?" H 8741 3296 50  0000 L CNN
+F 1 "2N3904" H 8741 3205 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 8750 3175 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 8550 3250 50  0001 L CNN
+	1    8550 3250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F82EE92
+P 8450 3450
+F 0 "#PWR?" H 8450 3200 50  0001 C CNN
+F 1 "GND" H 8455 3277 50  0000 C CNN
+F 2 "" H 8450 3450 50  0001 C CNN
+F 3 "" H 8450 3450 50  0001 C CNN
+	1    8450 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Zener D?
+U 1 1 5F83F8FA
+P 8550 2600
+F 0 "D?" H 8550 2816 50  0000 C CNN
+F 1 "5.1v" H 8550 2725 50  0000 C CNN
+F 2 "" H 8550 2600 50  0001 C CNN
+F 3 "~" H 8550 2600 50  0001 C CNN
+	1    8550 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 3050 8450 2950
+Wire Wire Line
+	8450 2650 8400 2650
+Wire Wire Line
+	8400 2650 8400 2600
+Connection ~ 8400 2600
+Wire Wire Line
+	6550 2600 8400 2600
+Connection ~ 6550 2600
+$Comp
+L Device:D_Small D?
+U 1 1 5F846BFF
+P 9700 2900
+F 0 "D?" H 9700 2695 50  0000 C CNN
+F 1 "D_Small" H 9700 2786 50  0000 C CNN
+F 2 "" V 9700 2900 50  0001 C CNN
+F 3 "~" V 9700 2900 50  0001 C CNN
+	1    9700 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9800 2900 9950 2900
+Wire Wire Line
+	9950 2900 9950 2300
+Wire Wire Line
+	9950 2300 10250 2300
+Wire Wire Line
+	9600 2900 9600 2950
+Wire Wire Line
+	9600 2950 8450 2950
+Connection ~ 8450 2950
+Wire Wire Line
+	8450 2950 8450 2650
+$Comp
+L Device:D_Zener D?
+U 1 1 5F85251C
+P 4450 3950
+F 0 "D?" H 4450 3734 50  0000 C CNN
+F 1 "5v1" H 4450 3825 50  0000 C CNN
+F 2 "" H 4450 3950 50  0001 C CNN
+F 3 "~" H 4450 3950 50  0001 C CNN
+	1    4450 3950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4300 3950 3900 3950
+Wire Wire Line
+	3900 3250 3900 3950
+$Comp
+L Device:R_Small R?
+U 1 1 5F854FB7
+P 3900 4050
+F 0 "R?" H 3959 4096 50  0000 L CNN
+F 1 "10k" H 3959 4005 50  0000 L CNN
+F 2 "" H 3900 4050 50  0001 C CNN
+F 3 "~" H 3900 4050 50  0001 C CNN
+	1    3900 4050
+	1    0    0    -1  
+$EndComp
+Connection ~ 3900 3950
+$Comp
+L power:GND #PWR?
+U 1 1 5F85515C
+P 3900 4200
+F 0 "#PWR?" H 3900 3950 50  0001 C CNN
+F 1 "GND" H 3905 4027 50  0000 C CNN
+F 2 "" H 3900 4200 50  0001 C CNN
+F 3 "" H 3900 4200 50  0001 C CNN
+	1    3900 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 4200 3900 4150
+Wire Wire Line
+	4600 3950 6550 3950
+Wire Wire Line
+	6550 3950 6550 2600
+Text Notes 7050 7000 0    63   ~ 0
+Solar Car emergency stop circuit\nDesigned 2020\nThor Lancaster, Tom Fontaine\nBridger Solar Team, Montana State University
+Text Notes 7400 7500 0    79   ~ 0
+Solar Car Emergency Stop
 $EndSCHEMATC
